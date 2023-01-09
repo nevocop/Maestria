@@ -1,7 +1,7 @@
 # importamos la interpolación de Langrange del módulo de interpolación de Scipy
 # from scipy.interpolate import lagrange
 # importamos la librería Numpy con un alias, para hacer los cálculos
-##import numpy as np
+import numpy as np
 # importamos la librería Sympy, para desarrollar la forma algebraica del polinomio
 import sympy as sym
 # importamos la librería Matplotlib con un alias, para graficas
