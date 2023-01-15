@@ -2,7 +2,7 @@
 # Se importan las librerias necesarias para el algoritmo
 # La clase scipy.interpolate se utiliza para interpolar una función unidimensional
 from scipy.interpolate import interp1d
-# Se la librería Matplotlib con un alias, para graficas
+# Se importa la librería Matplotlib con un alias, para graficas
 import matplotlib.pyplot as plt
 # Se importa la librería Numpy con un alias, para hacer los cálculos
 import numpy as np
