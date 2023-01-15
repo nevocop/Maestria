@@ -13,12 +13,12 @@ X = [20, 40, 60, 80, 100, 120, 140, 160, 180]
 Y = [0.601, 1.193, 1.763, 2.299, 2.790, 3.238, 3.623, 3.933, 4.181]
  
 # Punto en el que se quiere interpolar
-interpolate_x = 55
+interpolar_x = 55
  
 # Resolviendo y buscando la interpolación
 y_interp = interp1d(X, Y)
-print("Value of Y at x = {} is".format(interpolate_x),
-      y_interp(interpolate_x))
+print("El valor de Y en X = {} es".format(interpolar_x),
+      y_interp(interpolar_x))
 
 # Vectores para graficas
 """muestras = 100 # Numero cualquiera
