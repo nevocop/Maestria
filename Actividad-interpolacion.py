@@ -1,4 +1,4 @@
-# INTERPOLACION MECANISMO EN LINEA RECTA DE HOEKEN
+# INTERPOLACION MECANISMO EN LINEA RECTA DE HOEKEN____ PRUEBA
 # Se importan las librerias necesarias para el algoritmo
 # La clase scipy.interpolate se utiliza para interpolar una función unidimensional
 from scipy.interpolate import interp1d
