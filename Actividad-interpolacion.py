@@ -10,8 +10,8 @@ import sympy as sym
 import matplotlib.pyplot as plt
 
 # Se ingresan valores θ start (xi) y ΔΒ (fi) proporcionados en la tabla del ejercicio propuesto
-#xi = np.array([20, 40, 60, 80, 100, 120, 140, 160, 180])
-#fi = np.array([170, 160, 150, 140, 130, 120, 110, 100, 90])
+xi = np.array([20, 40, 60, 80, 100, 120, 140, 160, 180])
+fi = np.array([170, 160, 150, 140, 130, 120, 110, 100, 90])
 
 # Se ingresan valores %of cycle (xi) y ΔΒ (fi) proporcionados en la tabla del ejercicio propuesto
 #xi = np.array([20, 40, 60, 80, 100, 120, 140, 160, 180])
@@ -46,8 +46,8 @@ import matplotlib.pyplot as plt
 #fi = np.array([0.006, 0.0038, 0.106, 0.340, 0.910, 1.885, 3.327, 5.878, 9.299])
 
 # Se ingresan valores ΔCy % (xi) y ΔΒ (fi) proporcionados en la tabla del ejercicio propuesto
-xi = np.array([20, 40, 60, 80, 100, 120, 140, 160, 180])
-fi = np.array([0.137, 0.274, 0.387, 0.503, 0.640, 0.752, 0.888, 1.067, 1.446])
+#xi = np.array([20, 40, 60, 80, 100, 120, 140, 160, 180])
+#fi = np.array([0.137, 0.274, 0.387, 0.503, 0.640, 0.752, 0.888, 1.067, 1.446])
 
 # Se ingresan valores [Vx/(L2 ω2)] (xi) y ΔΒ (fi) proporcionados en la tabla del ejercicio propuesto
 #xi = np.array([20, 40, 60, 80, 100, 120, 140, 160, 180])
@@ -65,14 +65,6 @@ fi = np.array([0.137, 0.274, 0.387, 0.503, 0.640, 0.752, 0.888, 1.067, 1.446])
 #xi = np.array([20, 40, 60, 80, 100, 120, 140, 160, 180])
 #fi = np.array([0.480, 0.950, 1.411, 1.845, 2.237, 2.600, 2.932, 3.232, 3.456])
 
-"""# Punto en el que se quiere interpolar ΔΒ = 55°
-interpolar_x = 55
- 
-# Resolviendo y buscando la interpolación
-y_interp = lagrange(fi, xi)
-print("El valor de Y en X = {} es".format(interpolar_x),
-      y_interp(interpolar_x))
-print(' ')"""
 
 # Conocer la longitud de xi 
 n = len(xi)
@@ -128,8 +120,8 @@ print(p)
 
 print(' ')
 print('Evaluación del polinomio')
-print(p(55))
-
+y=round(p(55), 5)
+print(y)
 # Vectores para graficas
 muestras = 100 # Numero cualquiera
 a = np.min(xi)
@@ -141,3 +133,7 @@ pfi = p(p_xi)
 plt.plot(xi,fi, 'o')
 plt.plot(p_xi,pfi)
 plt.show()
+
+lista = []
+lista2=lista.append(y)
+print(lista)
