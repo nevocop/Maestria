@@ -117,8 +117,6 @@ xi = np.array([20, 40, 60, 80, 100, 120, 140, 160, 180])
 fi = np.array([0.480, 0.950, 1.411, 1.845, 2.237, 2.600, 2.932, 3.232, 3.456])
 ΔX_L2V=calculo_polinomio(xi,fi)
 
-
-
 #lista = []
 #lista.append(guyurley(xi, fi))
 print(' ')
