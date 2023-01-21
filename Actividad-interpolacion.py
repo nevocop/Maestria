@@ -10,70 +10,28 @@ import sympy as sym
 import matplotlib.pyplot as plt
 #lista = []
 def calculo_polinomio(xi,fi):
-    # Conocer la longitud de xi 
-        n = len(xi)
-    # Se asigna un carácter x para representar la variable X del polinomio
-        x = sym.Symbol('x')
-    # Inicialización del polinomio
-        polinomio = 0
-    # Desplazamiento de i dentro del rango xi para encontrar todos los terminos del polinomio
-        for i in range(0,n,1):
-            """ Calculo del primer termino Langrage, es necesario calcular un numerador que se obtiene por multiplicaciones
-            Por tal razón se inicializa en "1" tanto numerador y denominador del polinomio"""
-            numerador = 1
-            denominador = 1
-            # El numerador debe recorrer todos los puntos del vector xi
-            for j in range(0,n,1):
-                # Se condiciona al no uso del punto de referencia y se calcula numerador y denominador
-                if (i != j):
-                    numerador = numerador*(x-xi[j])
-                    denominador = denominador*(xi[i]-xi[j])
-                # Calculo de los terminos de lagrange
-                termino = (numerador/denominador)*fi[i]
-            # Se acumulan todos los terminos del polinomio
-            polinomio = polinomio + termino
         
-    # Se simplifica el polinomio
-        polisimple = sym.expand(polinomio)
-
-    # Forma lambda (convrsión a forma numerica) del polinomio px, referencia x y el polinomio que se desea convertir
-        px = sym.lambdify(x, polinomio)
-
+    # Calculo de polinomio de lagrange
+    p = lagrange(xi,fi)
+    print('polinomio con lagrange')
+    print(p)
+    #print(' ')
+    #print('Punto en el que se va a evaluar el polinomio')
+    y=round(p(55), 5)
+    #print(y)
     # Vectores para graficas
-        muestras = 100 # Numero cualquiera que garantice que se van a graficar la cantidad de puntos necesarios
-    # Valor mínimo del vector
-        a = np.min(xi)
-        # Valor máximo del vector
-        b = np.max(xi)
-        # Serie de puntos para el trazado de la línea
-        p_xi = np.linspace(a,b,muestras)
-        # Se llama el polinomio en forma lambda para el que se requiere la evaluación del polinomio
-        pfi = px(p_xi)
+    muestras = 100 # Numero cualquiera
+    a = np.min(xi)
+    b = np.max(xi)
+    p_xi = np.linspace(a,b,muestras)
+    pfi = p(p_xi)
 
-    
-
-    # Ejemplo con la librería lagrange
-        p = lagrange(xi,fi)
-        print('polinomio con lagrange')
-        print(p)
-
-        #print(' ')
-        #print('Evaluación del polinomio')
-        y=round(p(55), 5)
-        #print(y)
-        # Vectores para graficas
-        muestras = 100 # Numero cualquiera
-        a = np.min(xi)
-        b = np.max(xi)
-        p_xi = np.linspace(a,b,muestras)
-        pfi = p(p_xi)
-
-        # Grafica
-        plt.plot(xi,fi, 'o')
-        plt.plot(p_xi,pfi)
-        plt.show()
-        #print(y)
-        return y
+    # Se realizan las gráficas
+    plt.plot(xi,fi, 'o')
+    plt.plot(p_xi,pfi)
+    plt.show()
+    #print(y)
+    return y
 
 # Se ingresan valores θ start (fi) y ΔΒ (xi) proporcionados en la tabla del ejercicio propuesto
 plt.title('θ start')
