@@ -1,26 +1,22 @@
-# Se importan librerias
+# SE IMPORTAN LAS LIBRERIAS
+
+# Se importa la libreria sympy para determinar las expresiones de los coeficientes
+import sympy as sym
+# Se importan las librerias para las gráficas
 import numpy as np
-import matplotlib.pylab as plt
+import matplotlib.pyplot as plt
 
-from scipy import signal as sp
-# Importamos todo el modulo sympy
-from sympy import *
-# Importamos las variables simbolicas 'n' y 't'
-from sympy.abc import n, t
-# Periodo
-T = pi
-# Frecuencia angular
-w = (2*pi)/T
+# Se ingresa la función a evaluar
 
-amplitude = 1
-time = np.arange(-1, 10, 0.001)
-squareWaveFunction = (sp.square(2*time) * amplitude/2.0) + amplitude/2.0
+t = sym.Symbol('t')
+T = 2 * sym.pi
+Y = sym.Piecewise((-1,t <-T/2),
+                   (-1,t <-T/4),
+                   ( 1,t < T/4),
+                   (-1,t < T/2),
+                   (-1,True),)
+# Número de coeficientes que el ejercicio pide
+n = 8
 
-# Graficamos la onda cuadrada
-plt.plot(time, squareWaveFunction, lw=2)
-plt.grid()
-plt.annotate('T', xy = (np.pi, 0), xytext = (np.pi, -0.01))
-plt.annotate('T/2', xy = (np.pi / 2.0, 0), xytext = (np.pi / 2.0, 1.01))
-plt.ylabel('Amplitude')
-plt.xlabel('time(t)')
-plt.show()
+# Definición del intervalo a trabajar
+t_ini = -T/2 ; t_fin = T/2
