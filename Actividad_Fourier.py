@@ -79,3 +79,29 @@ while (i<=term):
     i = i+1
 print('\nLa serie de Fourier para la función dada es:\n') # Se imprime la serie de Fourier
 sym.pprint(ser_Fou)                                     # Muestra el resultado de una forma mas ordenada
+
+# Gráfica de la función y de la serie de Fourier
+cant_muestras = 150                                     # Número cualquiera para evaluar la gráfica
+f_y = sym.lambdify(t,Y)                                 # Uso la función lambdify para transformar valores de la funcion vs tiempo
+fs_y = sym.lambdify(t, ser_Fou)                         # Uso la función lambdify para transformar valores de la serie fourie vs tiempo
+ti = np.linspace(t_ini, t_fin, cant_muestras)           # Uso la función np.linspace para organizar los datos en un arreglo
+fi = f_y(ti)                                            # Se almacenan los resultados para grafica de la función
+fsi = fs_y(ti)                                          # Se almaecnana los resultados para grafica de la serie de Fourier
+
+# Se crea la etiqueta de las convenciones y su ubicación en la gráfica
+plt.plot(ti,fi,color='red',label = 'f(t)')
+plt.plot(ti,fsi,color='green',label = 'términos = '+ str(term))
+plt.legend(bbox_to_anchor =(0.75, 0.90))
+plt.grid()
+
+# Se nombran el título y los ejes de la gráfica
+plt.title('Actividad_Fourier')
+plt.ylabel('Amplitud')
+plt.xlabel('Tiempo(t)')
+
+# Se crean los puntos sobre los que pasará la gráfica
+plt.annotate('-T/2', xy = (np.pi, 0), xytext = (-3.2, -1.10))
+plt.annotate('-T/4', xy = (np.pi, 0), xytext = (-1.8, -1.10))
+plt.annotate('T/4', xy = (np.pi, 0), xytext = (1.4, -1.10))
+plt.annotate('T/2', xy = (np.pi, 0), xytext = (2.9, -1.10))
+plt.show()
