@@ -17,7 +17,7 @@ Y = sym.Piecewise((-1,t <-T/4),                         # Se utiliza Piecewise p
                    (-1,True),)
 
 # Número de coeficientes que pide el ejercicio
-term = 80
+term = 50
 
 # Procedimiento para calcular la Serie de Fourier
 # Definición del intervalo en el cual se va a analizar la función
