@@ -2,9 +2,9 @@
           RUNGE KUTTA, EULER Y EULER MEJORADO"""
 
 # MÉTODO DE EULER
-# Deficinición de la función Euler
+# Definición de la función Euler
 
-def euler(f,x_i,y_i,intervalo,xf):                      # Definición de la función con sus respectivos parámetros
+"""def euler(f,x_i,y_i,intervalo,xf):                      # Definición de la función con sus respectivos parámetros
     x=[x_i]                                             # Se crea la lista donde se almacenarán los valores de x
     y=[y_i]                                             # Se crea la lista donde se almacenarán los valores de y    
     h=intervalo                                         # Se crea la variable donde se almacena el intervalo a usar
@@ -18,7 +18,26 @@ def euler(f,x_i,y_i,intervalo,xf):                      # Definición de la func
         y_euler = yi+h*f(xi,yi)
         x.append(x_euler)
         y.append(y_euler)
-    return x,y
+    return x,y"""
+
+# MÉTODO DE EULER MEJORADO
+# Definición de la función Euler Mejorado
+
+def euler_mej(f,x_i,y_i,intervalo,xf):                  # Definición de la función con sus respectivos parámetros
+    x=[x_i]                                             # Se crea la lista donde se almacenarán los valores de x
+    y=[y_i]                                             # Se crea la lista donde se almacenarán los valores de y    
+    h=intervalo                                         # Se crea la variable donde se almacena el intervalo a usar
+    n=int((xf-x_i)/h)                                   # Número de iteraciones que se ralizarán para resolver la ecuación
+    
+    # Se crea ciclo for para resolver la ecuación por el método de Euler Mejorado
+    for i in range(1,n+1):
+        xi = x[i-1]
+        yi = y[i-1]
+        yi_m = yi + h*f(xi,yi)
+        yi = yi + h/2*(f(xi+h,yi_m) + f(xi,yi))
+        x.append(xi+h)
+        x.append(yi)
+    return (x,y)
 
 """# METODO DE RUNGE KUTTA
 # Definición de la función runge_kut
@@ -45,5 +64,5 @@ def runge_kut(f,x_i,y_i,intervalo,xf):                  # Definición de la func
     return x,y"""
 
 fun_solve = lambda x,y:2*x*y
-x,ye=euler(fun_solve,1,1,0.1,1.5)
+x,ye=euler_mej(fun_solve,1,1,0.1,1.5)
 print(x,ye)
