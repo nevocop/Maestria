@@ -81,7 +81,6 @@ y_f = float(input("Ingrese el valor final de y: "))     # Se ingresa el valor fi
 h = float(input("Ingrese el intervalo que se va a utilizar: "))     # Se ingresa el intervalo que se va a utilizar para el análisis
 print('\n')                                             # Salto de línea
 fun_solve = lambda x,y:eval(funcion)                    # Se ingresa en una variable la función ingresada por el usuario y se evalua
-
 x,ye = euler(fun_solve,x_i,y_i,h,y_f)                   # Se aplica el método de Euler
 x,yem = euler_mej(fun_solve,x_i,y_i,h,y_f)              # Se aplica el método de Euler mejorado
 x,yrk = runge_kut(fun_solve,x_i,y_i,h,y_f)              # Se aplica el método de Runge Kutta
